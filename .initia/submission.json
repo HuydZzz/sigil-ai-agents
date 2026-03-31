@@ -1,0 +1,12 @@
+{
+  "project_name": "SIGIL — AI Agent Hub",
+  "repo_url": "https://github.com/YOUR_GITHUB/sigil-ai-agents",
+  "commit_sha": "PASTE_YOUR_FINAL_COMMIT_SHA_HERE",
+  "rollup_chain_id": "sigil-1",
+  "deployed_address": "PASTE_YOUR_MODULE_ADDRESS_HERE",
+  "vm": "move",
+  "native_feature": "auto-signing",
+  "core_logic_path": "contracts/sources/agent_registry.move",
+  "native_feature_frontend_path": "src/hooks/useAutoSign.ts",
+  "demo_video_url": "https://youtu.be/YOUR_VIDEO_ID"
+}

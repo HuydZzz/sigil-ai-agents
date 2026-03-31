@@ -1,0 +1,9 @@
+[package]
+name = "sigil"
+version = "0.1.0"
+
+[addresses]
+sigil = "YOUR_DEPLOYED_ADDRESS"
+
+[dependencies]
+InitiaStdlib = { git = "https://github.com/initia-labs/movevm.git", subdir = "precompile/modules/initia_stdlib", rev = "main" }

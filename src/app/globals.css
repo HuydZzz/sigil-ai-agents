@@ -1,0 +1,194 @@
+/* src/app/globals.css */
+/* SIGIL — Dark Crypto-Native Theme */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom Properties ────────────────────────────────── */
+
+:root {
+  --sigil-bg: #0A0B0D;
+  --sigil-surface: #12131A;
+  --sigil-border: rgba(232, 220, 200, 0.08);
+  --sigil-text: #E8DCC8;
+  --sigil-text-muted: rgba(232, 220, 200, 0.55);
+  --sigil-text-dim: rgba(232, 220, 200, 0.35);
+
+  /* Agent type colors (matching logos) */
+  --sigil-architect: #7BDDBB;   /* Teal-green — Hexagon */
+  --sigil-oracle: #F0C866;       /* Gold — Shell */
+  --sigil-sentinel: #E87B5B;     /* Coral — Crosshair */
+  --sigil-nexus: #E8DCC8;        /* Cream — Star */
+
+  /* Semantic */
+  --sigil-success: #7BDDBB;
+  --sigil-warning: #F0C866;
+  --sigil-danger: #E87B5B;
+  --sigil-info: #8B9FD4;
+
+  /* Typography */
+  --font-display: 'DM Sans', 'Satoshi', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ── Base ─────────────────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--sigil-bg);
+  color: var(--sigil-text);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(232, 220, 200, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(232, 220, 200, 0.2);
+}
+
+/* ── Animations ───────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 4px var(--sigil-architect); }
+  50% { box-shadow: 0 0 12px var(--sigil-architect); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease both;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease both;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ── Utility Classes ──────────────────────────────────── */
+
+.glass {
+  background: rgba(18, 19, 26, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--sigil-border);
+}
+
+.card-hover {
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-hover:hover {
+  border-color: rgba(232, 220, 200, 0.15);
+  transform: translateY(-2px);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #E8DCC8 30%, #7BDDBB 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Grid pattern background */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(232, 220, 200, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 220, 200, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Agent Type Badges ────────────────────────────────── */
+
+.badge-architect {
+  background: rgba(123, 221, 187, 0.12);
+  color: var(--sigil-architect);
+  border: 1px solid rgba(123, 221, 187, 0.25);
+}
+
+.badge-oracle {
+  background: rgba(240, 200, 102, 0.12);
+  color: var(--sigil-oracle);
+  border: 1px solid rgba(240, 200, 102, 0.25);
+}
+
+.badge-sentinel {
+  background: rgba(232, 123, 91, 0.12);
+  color: var(--sigil-sentinel);
+  border: 1px solid rgba(232, 123, 91, 0.25);
+}
+
+/* ── Tailwind Extensions ──────────────────────────────── */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
